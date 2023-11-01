@@ -20,12 +20,12 @@ app.use('/books/:id', bookRouter)
 app.use(cors())
 
 //Allows custom origins
-app.use(cors({
-    //only req with this origin will access the server
-    origin: 'http://localhost:3000',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-type']
-}))
+// app.use(cors({
+//     //only req with this origin will access the server
+//     origin: 'http://localhost:3000',
+//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//     allowedHeaders: ['Content-type']
+// }))
 
 app.get('/', (req, res)=>{
     res.status(200).send("Welcome to the home page")
