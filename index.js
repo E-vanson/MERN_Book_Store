@@ -5,6 +5,8 @@ const mongoose = require('mongoose')
 const Book = require('./models/book')
 const bookRouter = require('./routes/book')
 const cors = require('cors')
+add_header 'Access-Control-Allow-Origin' 'http://localhost:5174' always;
+
 
 
 const app = express();
@@ -20,12 +22,12 @@ app.use('/books/:id', bookRouter)
 app.use(cors())
 
 //Allows custom origins
-// app.use(cors({
-//     //only req with this origin will access the server
-//     origin: 'http://localhost:3000',
-//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-//     allowedHeaders: ['Content-type']
-// }))
+app.use(cors({
+    //only req with this origin will access the server
+    origin: 'http://localhost:5174',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-type']
+}))
 
 app.get('/', (req, res)=>{
     res.status(200).send("Welcome to the home page")
