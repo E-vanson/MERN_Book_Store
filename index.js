@@ -54,6 +54,7 @@ app.get('/', (req, res)=>{
 // console.log(PORT)
 
         mongoose.connect(mongoUri)
+        
         .then(()=>{
             console.log('The db connection was successful')
             app.listen(PORT, ()=>{
