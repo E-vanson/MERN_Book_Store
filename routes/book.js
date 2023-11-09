@@ -34,22 +34,22 @@ router.get('/', async (req, res)=>{
 })
 
 //Route to get a single book
-router.get('/', async (req, res)=>{
+router.get('/:id', async (req, res)=>{
     try {
         if(!req.params){
             res.status(400).json({msg:'Bad request error'})
         }
         //destructure the id from the req
         const {id} = req.params
-        const book = await Book.findById({_id:id})
-        res.status(200).json({data:book})
+        const book = await Book.findById(id)
+        return res.status(200).json(book)
     } catch (error) {
         res.status(500).json({msg: error.message})
     }
 })
 
 //Route to delete a book
-router.delete('/', async(req, res)=>{
+router.delete('/:id', async(req, res)=>{
     try {
         const {id} = req.params
     if(!id){
@@ -67,7 +67,7 @@ router.delete('/', async(req, res)=>{
 })
 
 //Route to update a book
-router.put('/', async (req, res)=>{
+router.put('/:id', async (req, res)=>{
     try {
         const {id} = req.params
     //const {update }= req.body

@@ -32,7 +32,7 @@ app.use(cors())
 
 //routes
 app.use('/books', bookRouter)
-app.use('/books/:id', bookRouter)
+//app.use('/books/:id', bookRouter)
 
 
 
